@@ -1,6 +1,9 @@
 package Actionclass;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -14,14 +17,18 @@ public class Student {
 		ChromeDriver driver=new ChromeDriver();
 			
 		driver.get("https://opensource-demo.orangehrmlive.com/");
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		//scroll down
+		jse.executeScript("window.scrollBy(0,1500);");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		WebElement usernametxt	=driver.findElement(By.id("txtUsername"));
 		usernametxt.sendKeys("Admin");
 		 WebElement passwordtxt	=driver.findElement(By.id("txtPassword"));
 		 passwordtxt.sendKeys("admin123");
 		
 		driver.findElement(By.id("btnLogin")).click();
-		Thread.sleep(2000);
+		
 	WebElement admin=driver.findElement(By.xpath("//a[@id='menu_admin_viewAdminModule']"));
 	 WebElement usermanagement=driver.findElement(By.xpath("//a[@id='menu_admin_UserManagement']"));
 	WebElement users=driver.findElement(By.xpath("//a[@id='menu_admin_viewSystemUsers']"));
