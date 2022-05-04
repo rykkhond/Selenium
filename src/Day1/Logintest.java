@@ -10,15 +10,16 @@ public class Logintest {
 		
 		System.setProperty("webdriver.chrome.driver","C://Users//2168382//Desktop/chromedriver.exe");
 		
-		ChromeDriver driver=new ChromeDriver();
+	ChromeDriver driver=new ChromeDriver();
 		
-		driver.get("https://opensource-demo.orangehrmlive.com/");
+	driver.get("https://opensource-demo.orangehrmlive.com/");
+	driver.manage().window().maximize();
 	WebElement usernametxt	=driver.findElement(By.id("txtUsername"));
 	usernametxt.sendKeys("Admin");
 	 WebElement passwordtxt	=driver.findElement(By.id("txtPassword"));
 	 passwordtxt.sendKeys("admin123");
 	
-		driver.findElement(By.id("btnLogin")).click();
+	driver.findElement(By.id("btnLogin")).click();
 	}
 
 }
